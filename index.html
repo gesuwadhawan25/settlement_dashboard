@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Client Reporting Dashboard</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Settlement Client Dashboard</h1>
+
+<div class="kpis">
+  <div id="totalClients"></div>
+</div>
+
+<div class="charts">
+  <canvas id="genderChart"></canvas>
+  <canvas id="ageChart"></canvas>
+  <canvas id="statusChart"></canvas>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
