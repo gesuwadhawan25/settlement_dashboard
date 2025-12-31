@@ -1,16 +1,16 @@
-const csvFile = "dashboard_data.csv";
+fetch("dashboard_data.json")
+  .then(response => response.json())
+  .then(data => {
+    const cleanData = data.filter(row => row.Gender);
 
-Papa.parse(csvFile, {
-  download: true,
-  header: true,
-  complete: function(results) {
-    const data = results.data.filter(row => row.Gender);
-    showKPIs(data);
-    drawGenderChart(data);
-    drawAgeChart(data);
-    drawStatusChart(data);
-  }
-});
+    showKPIs(cleanData);
+    drawGenderChart(cleanData);
+    drawAgeChart(cleanData);
+    drawStatusChart(cleanData);
+  })
+  .catch(error => {
+    console.error("DATA LOAD ERROR:", error);
+  });
 
 function showKPIs(data) {
   document.getElementById("totalClients").innerHTML =
@@ -27,9 +27,7 @@ function drawGenderChart(data) {
     type: "pie",
     data: {
       labels: Object.keys(counts),
-      datasets: [{
-        data: Object.values(counts)
-      }]
+      datasets: [{ data: Object.values(counts) }]
     }
   });
 }
@@ -44,9 +42,7 @@ function drawAgeChart(data) {
     type: "bar",
     data: {
       labels: Object.keys(groups),
-      datasets: [{
-        data: Object.values(groups)
-      }]
+      datasets: [{ data: Object.values(groups) }]
     }
   });
 }
@@ -62,9 +58,7 @@ function drawStatusChart(data) {
     type: "doughnut",
     data: {
       labels: Object.keys(status),
-      datasets: [{
-        data: Object.values(status)
-      }]
+      datasets: [{ data: Object.values(status) }]
     }
   });
 }
