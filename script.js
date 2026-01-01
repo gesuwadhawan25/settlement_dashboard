@@ -36,7 +36,7 @@ function drawGenderChart(data) {
 function drawAgeChart(data) {
   const groups = {};
   data.forEach(d => {
-    groups[d["Age Group"]] = (groups[d["Age Group"]] || 0) + 1;
+    groups[d["age_group"]] = (groups[d["age_group"]] || 0) + 1;
   });
 
   new Chart(document.getElementById("ageChart"), {
@@ -51,7 +51,7 @@ function drawAgeChart(data) {
 function drawStatusChart(data) {
   const status = {};
   data.forEach(d => {
-    status[d["Status in Canada"]] =
+    status[d["status_in_canada"]] =
       (status[d["Status in Canada"]] || 0) + 1;
   });
 
