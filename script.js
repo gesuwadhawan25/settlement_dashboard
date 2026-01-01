@@ -1,4 +1,4 @@
-alert("JS IS actually RUNNING");
+alert("JS IS now RUNNING");
 fetch("dashboard_data.json")
   .then(response => response.json())
   .then(data => {
