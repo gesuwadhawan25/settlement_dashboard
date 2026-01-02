@@ -14,9 +14,8 @@ fetch("dashboard_data.json")
   });
 
 function showKPIs(data) {
-  console.log("data fetched is: ", data);
   document.getElementById("totalClients").innerHTML =
-    `Total Clients Served: <strong>${data}</strong>`;
+    `Total Clients Served: <strong>${data.length}</strong>`;
 }
 
 function drawGenderChart(data) {
